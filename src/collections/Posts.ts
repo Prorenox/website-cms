@@ -18,6 +18,7 @@ export const Posts: CollectionConfig = {
   admin: {
     useAsTitle: 'title',
     preview: doc => formatPreviewURL('posts', doc),
+    defaultColumns: ['title', 'slug', 'publishedOn'],
   },
   versions: {
     drafts: true,
