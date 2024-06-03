@@ -26,6 +26,7 @@
     "src/scripts/fetch-discord.ts",
     "src/scripts/fetch-github.ts",
     "src/scripts/syncDocs.ts",
+    "src/server.ts",
   ],
   "exclude": [
     "node_modules",
