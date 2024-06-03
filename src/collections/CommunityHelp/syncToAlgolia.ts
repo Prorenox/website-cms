@@ -2,7 +2,7 @@ import algoliasearch from 'algoliasearch'
 import cron from 'node-cron'
 import payload from 'payload'
 
-import { fetchDiscordThreads } from '../../scripts/fetch-discord'
+
 import { fetchGithubDiscussions } from '../../scripts/fetch-github'
 import { CommunityHelp } from 'payload/generated-types'
 
@@ -47,7 +47,7 @@ interface GithubDoc {
 export const syncToAlgolia = async (): Promise<void> => {
   // eslint-disable-next-line no-console
   console.log('RUNNING')
-  await fetchDiscordThreads(payload)
+ 
   await fetchGithubDiscussions(payload)
 
   const { docs } = await payload.find({

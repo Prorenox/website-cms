@@ -1,6 +1,6 @@
 import payload from 'payload'
 
-import { fetchDiscordThreads } from './fetch-discord'
+
 import { fetchGithubDiscussions } from './fetch-github'
 
 // eslint-disable-next-line
@@ -16,7 +16,6 @@ const populateCommunityHelp = async (): Promise<void> => {
 
   try {
     await Promise.all([
-      fetchDiscordThreads(payloadInstance),
       fetchGithubDiscussions(payloadInstance),
     ])
   } catch (error: unknown) {
