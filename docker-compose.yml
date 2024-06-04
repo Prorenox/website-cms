@@ -5,11 +5,21 @@ services:
     image: node:18-alpine
     ports:
       - '3000:3000'
+    environment:
+      PAYLOAD_SECRET: ${PAYLOAD_SECRET}
+      PAYLOAD_PUBLIC_CMS_URL: ${PUBLIC_CMS_URL}
+      PAYLOAD_PUBLIC_APP_URL: ${PUBLIC_APP_URL}
+      PAYLOAD_PUBLIC_DRAFT_SECRET: ${PUBLIC_DRAFT_SECRET}
+      REVALIDATION_KEY: ${REVALIDATION_KEY}
+      DATABASE_URI: ${DATABASE_URI}
+      PORT: 7500
     volumes:
       - payload:/home/node/app
       - node_modules:/home/node/app/node_modules
     working_dir: /home/node/app/
     command: sh -c "yarn install && yarn serve"
+    networks:
+      - proxy
     depends_on:
       - mongo
 
