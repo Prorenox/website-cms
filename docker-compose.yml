@@ -38,3 +38,7 @@ volumes:
   data:
   node_modules:
   payload:
+
+networks:
+  proxy: 
+    external: true  
