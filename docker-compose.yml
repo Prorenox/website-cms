@@ -13,6 +13,7 @@ services:
       REVALIDATION_KEY: ${REVALIDATION_KEY}
       DATABASE_URI: ${DATABASE_URI}
       PORT: 7500
+      NODE_ENV: production
     volumes:
       - payload:/home/node/app
       - node_modules:/home/node/app/node_modules
