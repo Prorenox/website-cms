@@ -17,7 +17,7 @@
     "generate:graphQLSchema": "PAYLOAD_CONFIG_PATH=src/payload.config.ts payload generate:graphQLSchema",
     "lint": "eslint src",
     "lint:fix": "eslint --fix --ext .ts,.tsx src",
-    "payload": "2.19.2",
+    "payload": "2.19.3",
     "populate-ch": "ts-node src/scripts/populate-community-help.ts"
   },
   "dependencies": {
@@ -38,7 +38,7 @@
     "gray-matter": "4.0.3",
     "node-cron": "3.0.3",
     "nodemailer-sendgrid": "1.0.3",
-    "payload": "2.19.2"
+    "payload": "2.19.3"
   },
   "devDependencies": {
     "@payloadcms/eslint-config": "^1.0.0",
