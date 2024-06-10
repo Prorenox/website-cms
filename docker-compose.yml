@@ -16,10 +16,10 @@ services:
       PORT: 7500
       NODE_ENV: production
     volumes:
-      - /home/node/app:/home/node/app
+      - payload:/home/node/app
       - node_modules:/home/node/app/node_modules
     working_dir: /home/node/app/
-    command: sh -c "yarn install && yarn dev"
+    command: sh -c "yarn install && yarn build && yarn serve"
     networks:
       - proxy
     depends_on:
@@ -38,6 +38,7 @@ services:
 
 volumes:
   data:
+  payload:
   node_modules:
 
 networks:
