@@ -5,6 +5,7 @@ services:
     image: node:18-alpine
     ports:
       - '3000:3000'
+    restart: always  
     environment:
       PAYLOAD_SECRET: ${PAYLOAD_SECRET}
       PAYLOAD_PUBLIC_CMS_URL: ${PUBLIC_CMS_URL}
@@ -15,7 +16,7 @@ services:
       PORT: 7500
       NODE_ENV: production
     volumes:
-      - payload:/home/node/app
+      - /home/node/app:/home/node/app
       - node_modules:/home/node/app/node_modules
     working_dir: /home/node/app/
     command: sh -c "yarn install && yarn dev"
@@ -38,7 +39,6 @@ services:
 volumes:
   data:
   node_modules:
-  payload:
 
 networks:
   proxy: 
