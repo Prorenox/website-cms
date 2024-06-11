@@ -13,6 +13,7 @@ services:
       PAYLOAD_PUBLIC_DRAFT_SECRET: ${PUBLIC_DRAFT_SECRET}
       REVALIDATION_KEY: ${REVALIDATION_KEY}
       DATABASE_URI: ${DATABASE_URI}
+      PAYLOAD_CONFIG_PATH: dist/payload.config.js
       PORT: 7500
       NODE_ENV: production
     volumes:
