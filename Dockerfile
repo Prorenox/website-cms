@@ -1,8 +1,10 @@
 FROM node:18.8-alpine as base
 
+
 FROM base as builder
 
 WORKDIR /home/node/app
+
 COPY package*.json ./
 
 COPY . .
@@ -21,7 +23,7 @@ COPY yarn.lock ./
 RUN yarn install --production
 COPY --from=builder /home/node/app/dist ./dist
 COPY --from=builder /home/node/app/build ./build
-
+RUN npm install pm2 -g
 EXPOSE 3000
 
-CMD ["node", "dist/server.js"]
+CMD ["pm2-runtime", "ecosystem.config.js", "--only", "myapp", "--env", "production"]
