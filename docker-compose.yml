@@ -20,7 +20,7 @@ services:
       - payload:/home/node/app
       - node_modules:/home/node/app/node_modules
     working_dir: /home/node/app/
-    command: sh -c "yarn install && yarn build && yarn serve"
+    command: sh -c "pm2 start ecosystem.config.js --env production"
     networks:
       - proxy
     depends_on:
