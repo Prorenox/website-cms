@@ -20,7 +20,10 @@ services:
       - payload:/home/node/app
       - node_modules:/home/node/app/node_modules
     working_dir: /home/node/app/
-    command: sh -c "npm install pm2 -g && pm2 start ./ecosystem.config.js --env production"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # command: sh -c "npm install pm2 -g && pm2 start /root/home/node/app/ecosystem.config.js --env production"
     networks:
       - proxy
     depends_on:
