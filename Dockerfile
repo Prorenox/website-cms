@@ -23,7 +23,7 @@ COPY yarn.lock ./
 RUN yarn install --production
 COPY --from=builder /home/node/app/dist ./dist
 COPY --from=builder /home/node/app/build ./build
-RUN npm install pm2 -g
-EXPOSE 3000
 
-CMD ["pm2-runtime", "ecosystem.config.js", "--only", "myapp", "--env=production"]
+EXPOSE 3000
+CMD ["node", "dist/server.js"]
+#CMD ["pm2-runtime", "ecosystem.config.js", "--only", "myapp", "--env=production"]

@@ -20,14 +20,12 @@ services:
       - payload:/home/node/app
       - node_modules:/home/node/app/node_modules
     working_dir: /home/node/app/
-    build:
-      context: .
-      dockerfile: Dockerfile
+    command: sh -c "yarn install && yarn build && yarn serve"
     # command: sh -c "npm install pm2 -g && pm2 start /root/home/node/app/ecosystem.config.js --env production"
-    networks:
-      - proxy
     depends_on:
       - mongo
+    env_file:
+      - .env  
 
   mongo:
     image: mongo:latest
@@ -42,9 +40,7 @@ services:
 
 volumes:
   data:
-  payload:
   node_modules:
+  payload:
 
-networks:
-  proxy: 
-    external: true  
+
